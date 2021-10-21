@@ -12,6 +12,7 @@ using std::cin;
 // convert binary to decimal or vice versa.
 
 // *Due to constraints of int numbers are no longer than 10 digits long.
+// *Not tested with negative numbers.
 
 void binaryToDecimal();
 void decimalToBinary();
