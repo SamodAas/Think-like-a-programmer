@@ -7,9 +7,9 @@ using std::cout;
 to steps of problem solving written in the book.*/
 
 /*
-STEP 1: Restating the problem:
+STEP 1. Restating the problem:
     perform mathematical operations on a number
-STEP 2:
+STEP 2.
     • Performing operations on every second digit starting from the penultimate
     • Splitting double digit results to separate digits
     • Adding all the number to evalute its mod 10
