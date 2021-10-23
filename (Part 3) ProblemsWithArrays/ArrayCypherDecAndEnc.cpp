@@ -10,6 +10,7 @@ int main(void){
     char alphabetArray[26] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     char c;
     string plainText = "abSomething something I really do like something something.";
+    string decodedText = "";
 
     int len = plainText.length();
     string cypherText = "";
@@ -30,5 +31,24 @@ int main(void){
     }
 
     cout << cypherText << std::endl;
+
+    // decoding cyphered text, The only difference is that it decodes
+    // back to uppercase letters
+    
+    int j = 0;
+    for (int i = 0; i < len; i++){
+        if (isalpha(cypherText[i]) != 0) {
+            for (j = 0; j < 26; j++) {
+                if (cypherText[i] == cypherArray[j]) {
+                    decodedText += alphabetArray[j];
+                    break;
+                }
+            }
+        }
+        else {
+            decodedText += cypherText[i];
+        }
+    }
+    cout << decodedText;
     return 0;
 }
