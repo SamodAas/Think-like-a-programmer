@@ -54,6 +54,7 @@ char characterAt(lString *head, int index){
 }
 
 void printList(lString *head){
+
     lString *node = new lString;
     node = head;
     cout << "------String:" << std::endl;
@@ -64,18 +65,85 @@ void printList(lString *head){
     cout <<"\n";
 }
 
+void removeChars(lString *head, int pos, int length){
+    
+    lString *node = new lString;
+    lString *tmp = new lString;
+    node = head;
+    int i = 0;
+    
+    if (pos == 0){  
+        node = node->next;                
+        while (i != length - 1) {
+            tmp = node;                
+            node = node->next;
+            head->next = node;
+            
+            if (node == NULL) {                    // in case length goes beyond the list
+                
+                head->stringChar = 0;
+                head->next == NULL;
+                return;
+            }
+            
+            delete tmp;
+            i++;
+        }
+        head->next = node->next;
+        head->stringChar = node->stringChar;
+        return;
+    }
+
+    while (i != pos - 1) {
+        node = node->next;
+        i++;
+        if (node->next == NULL) {
+            cout << "position out of bounds\n";
+            return;
+        } // in case pos goes beyond the list;
+
+    }
+    
+    i = 0;
+
+    while (i != length){
+        tmp = node->next;
+        // cout << tmp->stringChar << " to be deleted when i = " << i << std::endl; -------------------------works instead of comment
+        node->next = tmp->next;
+        delete tmp;
+        i++;
+        if (node->next == NULL) break; // in case length goes beyond the list;
+    }
+    return;
+}
+
 int main(void){
 
+    // First string
     lString *head = new lString;
     head->stringChar = 0;
     head->next = NULL;
     
     append(head, 's');
-    printList(head);
     append(head, 'a');
-    printList(head);
     append(head, 'b');
+    append(head, 'e');
+    append(head, 'r');  
+    append(head, ' ');
+    append(head, 'y');
+    append(head, 'r');
+    append(head, 'a');
+    append(head, ' ');
+    append(head, 'k');
+    append(head, 'i');
+    append(head, 'e');
+    append(head, 't');
+    append(head, 'a');
+    append(head, 's');
+    append(head, '.');
+
     printList(head);
-    cout << characterAt(head, 0);
+    removeChars(head, 0, 3);
+    printList(head);
     return 0;
 }
