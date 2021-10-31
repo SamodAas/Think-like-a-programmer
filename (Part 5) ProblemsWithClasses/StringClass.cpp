@@ -12,6 +12,7 @@ public:
     void append(char c);
     void concatenate(string string);
     char characterAt(int index);
+    char operator[](int index);
 private:
     int _length;
     char *_vlString;
@@ -60,11 +61,9 @@ int variableLengthString::getStringLength(string string){
     }
     return length;
 }
-
 char variableLengthString::characterAt(int index){
     return _vlString[index];
 }
-
 void variableLengthString::concatenate(string string){
 
     int stringLength2 = getStringLength(string);
@@ -85,6 +84,10 @@ void variableLengthString::concatenate(string string){
     delete[] _vlString;
     _vlString = newChar;
     cout << newChar;
+    _length = _length + stringLength2 -1;
+}
+char variableLengthString::operator[](int index){
+    return characterAt(index);
 }
 
 int main(void){
@@ -98,5 +101,6 @@ int main(void){
    cout << string1.getStringLength();
    string test = " Test String";
    string1.concatenate(test);
+   cout << "\n" << string1[2];
    return 0;
 }
