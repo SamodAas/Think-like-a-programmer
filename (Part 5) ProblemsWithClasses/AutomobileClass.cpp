@@ -5,22 +5,22 @@ using std::cout;
 using std::string;
 
 class automobile{
-    public:
-        automobile(string getManufacturer, string model, int year);                                   // Constructor
-        
-        void setManufacturer(string newManufacturer);                                                 // Get Set functions
-        string getManufacturer();
-        void setModel(string newModel);
-        string getModel();
-        void setYear(int newYear);
-        int getYear();
-                                            
-        string getFullInfo();                                                                       // Support functions
-        int getCarsAge();
-    private:
-        string _manufacturer;
-        string _model;
-        int _year;
+public:
+    automobile(string getManufacturer, string model, int year);                                   // Constructor
+    
+    void setManufacturer(string newManufacturer);                                                 // Get Set functions
+    string getManufacturer();
+    void setModel(string newModel);
+    string getModel();
+    void setYear(int newYear);
+    int getYear();
+                                        
+    string getFullInfo();                                                                       // Support functions
+    int getCarsAge();
+private:
+    string _manufacturer;
+    string _model;
+    int _year;
 };
 
 // Constructor
