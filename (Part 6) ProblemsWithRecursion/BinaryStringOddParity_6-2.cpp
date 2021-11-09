@@ -5,7 +5,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-// These (iterative and recursive) functions finds whether binary string has odd parity or not
+// These (iterative and recursive) functions finds whether binary string has odd parity or not (odd amount of 1's)
 bool iterativeSolution(int arr[], int len);
 bool recursiveSolution(int arr[], int len);
 
