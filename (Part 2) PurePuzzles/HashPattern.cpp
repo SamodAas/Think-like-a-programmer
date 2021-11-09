@@ -6,16 +6,15 @@ using std::cout;
 
 /* printing a picture of double sided pyramid:
 
-#            #          |   #------------#
- ##        ##           |   -##--------##
-  ###    ###            |   --###----###
-   ########             |   ---########
+#            #          |   
+ ##        ##           |   
+  ###    ###            |   
+   ########             |   
    ########             |   
   ###    ###            |   
  ##        ##           |   
 #            #          |   
 
-*the second object is for facility of coding only
 */
 
 int main(void){
