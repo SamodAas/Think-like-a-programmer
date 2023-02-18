@@ -8,7 +8,7 @@ using std::cin;
 // and add all the digits of the new number, valid identification number 
 // should be divisible by 10.
 
-// The task requires that we dont know the length of the number and process each digit upon it being entered
+// The task requires that we dont know the length of the number and process each digit separately
 
 int main(){
     cout << "Please enter your identification number: ";
