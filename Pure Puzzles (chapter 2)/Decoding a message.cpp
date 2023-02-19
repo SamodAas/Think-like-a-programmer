@@ -53,10 +53,3 @@ int main(){
     cout << final_text;    
 
 }
-
-
-// Steps to solve the task:
-// read and separate numbers by come
-// turn numbers to int and process them
-// converting ints to chars
-// figure out the system of tracking the decoding mode
