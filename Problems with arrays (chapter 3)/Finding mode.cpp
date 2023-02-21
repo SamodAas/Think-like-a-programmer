@@ -14,8 +14,8 @@ int main() {
     // However the second option seems to be less resource consuming as well as involving
     // less complexity. The first option is also explored in the book.
 
-    for (int i = 0; i < ARRAY_SIZE; i++){
-        value_counter_array[surveyData[i]]++;
+    for (int i = 1; i <= ARRAY_SIZE; i++){
+        value_counter_array[surveyData[i-1]]++;
     }
 
     for (int i = 0; i < ARRAY_SIZE; i++){
