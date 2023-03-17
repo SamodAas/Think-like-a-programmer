@@ -83,7 +83,7 @@ void replaceString(arrayString& sc, arrayString target, arrayString replaceText)
             }
             if (targetFound){
                 concatenate(final, replaceText);
-                i+=targetLength;
+                i+=targetLength-1;
             }
         targetFound = true;
         }
@@ -92,8 +92,9 @@ void replaceString(arrayString& sc, arrayString target, arrayString replaceText)
         }
      
 }
-    cout << final;
-}
+    delete[] sc;
+    sc = final;    
+        }
 
 int main(){
     arrayString word = new char[9];
@@ -106,6 +107,7 @@ int main(){
     word[9]=0;
     concatenate(word, test);
     replaceString(word, "ab", "qwr");
+    cout << word;
     
     
 
