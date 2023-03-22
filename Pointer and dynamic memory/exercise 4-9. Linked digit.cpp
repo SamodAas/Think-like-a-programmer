@@ -15,6 +15,8 @@ node *intToList(int number){
     node *newNode = new node;
     newNode->next = NULL;
 
+    //extracting digit
+
     int tmpDigit;
 
     tmpDigit = number%10;
@@ -23,7 +25,6 @@ node *intToList(int number){
 
     
     while (number>=1){
-        //extracting digit
         tmpDigit = number%10;
         number = (number-tmpDigit)/10;
         
