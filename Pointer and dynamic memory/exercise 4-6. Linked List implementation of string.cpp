@@ -56,31 +56,124 @@ char charAt(linkedNode *strhead, int index){
 
     // checking in case we weren't out of bounds by just one node
     if (tmpNode == NULL){
-            cout << "index out of bounds";
+            cout << "index out of bounds\n";
             return '0';
         }
     return tmpNode->c;
 }
 
+// Concatenate function where the last of s1 is not just pointing to the beginning of s2
+
+void concatenate(linkedNode *str1, linkedNode *str2){
+    linkedNode* tmpNode = str2;
+
+    while (tmpNode!=NULL){
+        append(str1, tmpNode->c);
+        tmpNode=tmpNode->next;
+    }
+    tmpNode = NULL;
+    return;
+}
+
+// remove length amount of chars starting at start
+
+void removeChars(linkedNode *head, int start, int length){
+    linkedNode *tmpNode = head;
+    linkedNode *tmpNode2;
+    linkedNode *tmpNode3;
+    int counter = 1;
+
+    // case of start being the first char
+
+    if (start == 1){
+        while (counter<=length)
+        {
+            tmpNode2 = tmpNode;
+            tmpNode = tmpNode->next;
+            delete tmpNode2;
+            counter++;
+        }
+        return;
+    }
+
+    // other cases
+
+    while (counter < start-1)
+    {   
+        if (tmpNode==NULL){
+            cout << "starting index out of bounds";
+            return;
+        }
+        
+        tmpNode=tmpNode->next;
+        
+        counter++;   
+    }
+
+    tmpNode2 = tmpNode->next;
+
+    for (int i = 0; i < length;i++){
+        
+        if (tmpNode2 == NULL){
+            cout << "Length is out of bounds";
+            return;
+        }
+
+        tmpNode3 = tmpNode2;
+        tmpNode2 = tmpNode2->next;
+        delete tmpNode3;
+    }
+    tmpNode->next = tmpNode2;
+    
+}
 
 int main(){
     linkedNode *tmpNode = new linkedNode;
     tmpNode->c = 'a', tmpNode->next=NULL;
-    head head;
-    head = tmpNode;
+    head head1;
+    head1 = tmpNode;
     tmpNode = NULL;
+    delete tmpNode;
 
 
     // append funtion
 
-    append(head, 'b');
-    append(head, 'c');
-    append(head, 'd');
+    append(head1, 'b');
+    append(head1, 'c');
+    append(head1, 'd');
 
-    printString(head);
+    cout << "Printing string: \n";
+    printString(head1);
+
 
     // char at function
 
-    cout << "Char at: \n";
-    cout << charAt(head, 5);
+    cout << "\n\nChar at: \n";
+    cout << charAt(head1, 3);
+
+
+    // concatenate function
+
+    head secondHead;
+    linkedNode *tmpNode2 = new linkedNode;
+    tmpNode2->c = 'z';
+    tmpNode2->next=NULL;
+    secondHead = tmpNode2;
+    tmpNode2 = NULL;
+    append(secondHead, 'y');
+    append(secondHead, 'k');
+    append(secondHead, 'e');
+
+    concatenate(head1, secondHead);
+    cout << "\nconcatenated string:\n";
+    printString(head1);
+
+    
+    // remove chars function
+
+    cout << "\nString before removal: ";
+    printString(head1);
+    removeChars(head1,3,3);
+    cout << "\nString after removal: ";
+    printString(head1);
 }
