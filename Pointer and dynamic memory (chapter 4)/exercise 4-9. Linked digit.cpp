@@ -39,6 +39,28 @@ node *intToList(int number){
     return newNode;
 }
 
+int listToInt(node *head){
+    node *tmpNode;
+    tmpNode = head;
+    int number = 0;
+
+    while (tmpNode!=NULL){
+        number+=tmpNode->dig;
+        number*=10;
+        tmpNode = tmpNode->next;
+    }
+
+    // after joining the last digit to the number the loop multiplies 
+    // the number by 10
+    
+    return number/10;
+}
+
+int digitListsSum(node *head, node *secondDigitList){
+    int sum;
+    return sum = listToInt(head) + listToInt(secondDigitList);
+}
+
 void printLinkedList(node *head){
     node *tmpNode = head;
 
@@ -54,6 +76,17 @@ int main(){
     int number = 12378;
     head hd;
     hd = intToList(number);
-
+    
     printLinkedList(hd);
+
+
+    // sum of two digit linked lists
+
+    head hd2;
+    hd2 = intToList(147);
+    cout << std::endl;
+    printLinkedList(hd2);
+    
+    cout << "\nsum of two above written numbers is " << digitListsSum(hd, hd2);
+
 }
